@@ -59,8 +59,8 @@ hive-mind/
 🧪 Como Executar o Projeto
 Clone o repositório:
 
-git clone https://github.com/seu-usuario/hive-mind.git
-cd hive-mind
+git clone https://github.com/HiveMind-Instituto-J-F/inter2ano.git
+cd inter2ano
 
 Crie um ambiente virtual e instale as dependências:
 python -m venv venv
