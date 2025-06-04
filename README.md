@@ -60,6 +60,7 @@ hive-mind/
 Clone o repositório:
 
 git clone https://github.com/HiveMind-Instituto-J-F/inter2ano.git
+
 cd inter2ano
 
 Crie um ambiente virtual e instale as dependências:
