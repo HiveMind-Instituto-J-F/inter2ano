@@ -55,6 +55,7 @@ hive-mind/
   ├── .github/        # Workflows e configs de CI/CD
   ├── README.md       # Este arquivo
   └── requirements.txt
+
 🧪 Como Executar o Projeto
 Clone o repositório:
 
