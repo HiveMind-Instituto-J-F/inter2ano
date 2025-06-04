@@ -48,13 +48,13 @@ Design e Design thinking: Figma
 
 📁 Estrutura do Projeto
 hive-mind/
-├── docs/           # Documentação técnica e funcional
-├── src/            # Código-fonte principal
-├── data/           # Conjuntos de dados (mock ou real)
-├── tests/          # Scripts de testes
-├── .github/        # Workflows e configs de CI/CD
-├── README.md       # Este arquivo
-└── requirements.txt
+  ├── docs/           # Documentação técnica e funcional
+  ├── src/            # Código-fonte principal
+  ├── data/           # Conjuntos de dados (mock ou real)
+  ├── tests/          # Scripts de testes
+  ├── .github/        # Workflows e configs de CI/CD
+  ├── README.md       # Este arquivo
+  └── requirements.txt
 🧪 Como Executar o Projeto
 Clone o repositório:
 
