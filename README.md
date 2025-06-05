@@ -59,19 +59,24 @@ hive-mind/
 🧪 Como Executar o Projeto
 Clone o repositório:
 
+```bash
 git clone https://github.com/HiveMind-Instituto-J-F/inter2ano.git
 
 cd inter2ano
-
+```
 Crie um ambiente virtual e instale as dependências:
+```bash
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
 
 pip install -r requirements.txt
+```
 Execute a aplicação:
-
+```bash
 uvicorn src.main:app --reload
+```
+
 🤝 Contribuindo
 Quer ajudar no Hive Mind? Toda contribuição é bem-vinda!
 Veja as Diretrizes de Contribuição e sinta-se à vontade para abrir issues ou pull requests.
