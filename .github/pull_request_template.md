@@ -35,9 +35,5 @@
 
 ```bash
 # Ambiente virtual
-python3 -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
 
 # Executar testes relevantes
-pytest tests/sync/
-python run_trainer.py --config configs/test_config.yaml
