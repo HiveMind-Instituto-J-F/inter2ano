@@ -24,11 +24,7 @@
 
 ## 🔍 Mudanças principais
 
-- [x] Adiciona `AdaptiveAverager` ao módulo de sincronização.
-- [x] Modifica a interface `run_trainer.py` para aceitar novos parâmetros.
-- [ ] Atualiza documentação em `README.md`.
-- [ ] Adiciona testes unitários para o novo componente.
-
+<!-- Descreva em tópicos as principais mudanças -->
 ---
 
 ## 🧪 Como testar
