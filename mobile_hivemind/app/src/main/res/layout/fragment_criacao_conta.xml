@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -11,28 +10,31 @@
     <!-- Título -->
     <TextView
         android:id="@+id/txtTitulo"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="68dp"
         android:fontFamily="@font/lexend_deca_semibold"
-        android:text="Informação do responsável"
+        android:text="Criação da conta"
+        android:textAlignment="textStart"
         android:textColor="#000000"
         android:textSize="30sp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Nome da empresa -->
+    <!-- Nome da Empresa -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutNOMEEMP"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="390dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
         android:hint="Nome da empresa"
-        app:layout_constraintTop_toBottomOf="@id/txtTitulo"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/txtTitulo">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextNOMEEMP"
@@ -45,13 +47,14 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutSENHA"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="390dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="228dp"
         android:hint="Senha"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayoutNOMEEMP"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextSENHA"
@@ -61,33 +64,89 @@
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Requisitos da senha -->
+    <!-- Regras da Senha -->
     <TextView
-        android:id="@+id/txtRequisitosSenha"
-        android:layout_width="390dp"
+        android:id="@+id/regra1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:text="Sua senha precisa ter\n1. Comprimento da senha: mínimo de oito caracteres.\n2. Caracteres numéricos: mínimo de dois números.\n3. Caracteres especiais: mínimo de um caractere especial.\n4. Letras maiúsculas: mínimo de uma letra maiúscula.\n5. Letras minúsculas: mínimo de uma letra minúscula."
-        android:textSize="12sp"
+        android:layout_marginHorizontal="16dp"
+        android:text="• Pelo menos 8 caracteres"
+        android:textColor="#7A7A7A"
+        android:textSize="14sp"
         android:fontFamily="@font/lexend_deca"
-        android:textColor="@android:color/darker_gray"
         app:layout_constraintTop_toBottomOf="@id/textInputLayoutSENHA"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Confirmação de senha -->
+    <TextView
+        android:id="@+id/regra2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="16dp"
+        android:text="• Pelo menos 2 números"
+        android:textColor="#7A7A7A"
+        android:textSize="14sp"
+        android:fontFamily="@font/lexend_deca"
+        app:layout_constraintTop_toBottomOf="@id/regra1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/regra3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="16dp"
+        android:text="• Pelo menos 1 caractere especial"
+        android:textColor="#7A7A7A"
+        android:textSize="14sp"
+        android:fontFamily="@font/lexend_deca"
+        app:layout_constraintTop_toBottomOf="@id/regra2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/regra4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="16dp"
+        android:text="• Pelo menos 1 letra maiúscula"
+        android:textColor="#7A7A7A"
+        android:textSize="14sp"
+        android:fontFamily="@font/lexend_deca"
+        app:layout_constraintTop_toBottomOf="@id/regra3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/regra5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="16dp"
+        android:text="• Pelo menos 1 letra minúscula"
+        android:textColor="#7A7A7A"
+        android:textSize="14sp"
+        android:fontFamily="@font/lexend_deca"
+        app:layout_constraintTop_toBottomOf="@id/regra4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Confirmação de Senha -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutCONFSENHA"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="390dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
         android:hint="Confirmação de senha"
-        app:layout_constraintTop_toBottomOf="@id/txtRequisitosSenha"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/regra5">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextCONFSENHA"
@@ -97,56 +156,63 @@
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Anexo -->
+    <!-- Upload de Imagem -->
     <LinearLayout
         android:id="@+id/layoutImagemUpload"
-        android:layout_width="390dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:orientation="vertical"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/borda_anexo"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayoutCONFSENHA"
+        android:orientation="vertical"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCONFSENHA">
 
         <TextView
             android:id="@+id/btnAnexarImagem"
             android:layout_width="match_parent"
-            android:layout_height="63dp"
+            android:layout_height="wrap_content"
             android:drawableStart="@drawable/icon"
             android:drawablePadding="8dp"
             android:fontFamily="@font/lexend_deca"
             android:gravity="center_vertical"
-            android:paddingStart="12dp"
+            android:paddingVertical="16dp"
             android:text="Adicionar anexo"
             android:textSize="16sp" />
     </LinearLayout>
 
-    <!-- Botão Voltar -->
-    <TextView
+    <!-- Botões -->
+    <Button
         android:id="@+id/btnVoltar"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/botao_voltar"
         android:fontFamily="@font/lexend_deca_semibold"
-        android:gravity="center"
         android:text="Voltar"
         android:textColor="@android:color/white"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtContinuar"
+        app:layout_constraintHorizontal_bias="0.971"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Botão Próximo -->
     <TextView
         android:id="@+id/txtContinuar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:text="Próximo"
-        android:textColor="#5F33E1"
+        android:layout_marginBottom="28dp"
         android:fontFamily="@font/lexend_deca_semibold"
+        android:text="Finalizar"
+        android:textColor="#5F33E1"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

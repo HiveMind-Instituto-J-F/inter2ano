@@ -1,6 +1,6 @@
 <svg width="375" height="812" viewBox="0 0 375 812" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_597_1835)">
-<rect width="375" height="812" fill="#C7B5FF"/>
+<rect width="375" height="812" fill="#D9CCFE"/>
 <g opacity="0.8">
 <rect y="198" width="374" height="614" fill="white"/>
 </g>
@@ -16,7 +16,7 @@
 <feGaussianBlur stdDeviation="0.5" result="effect1_foregroundBlur_597_1835"/>
 </filter>
 <linearGradient id="paint0_linear_597_1835" x1="186.517" y1="109" x2="186.114" y2="188.998" gradientUnits="userSpaceOnUse">
-<stop stop-color="#C6B6FD"/>
+<stop stop-color="#D9CCFE"/>
 <stop offset="0.662409" stop-color="white"/>
 </linearGradient>
 <clipPath id="clip0_597_1835">

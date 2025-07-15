@@ -58,7 +58,11 @@
         android:id="@+id/cadastroPessoalFragment"
         android:name="com.aula.mobile_hivemind.ui.auth.cadastro.CadastroPessoalFragment"
         android:label="fragment_cadastro_pessoal"
-        tools:layout="@layout/fragment_cadastro_pessoal" />
+        tools:layout="@layout/fragment_cadastro_pessoal" >
+        <action
+            android:id="@+id/action_cadastroPessoalFragment_to_verificacaoCellFragment"
+            app:destination="@id/verificacaoCellFragment" />
+    </fragment>
     <fragment
         android:id="@+id/criacaoContaFragment"
         android:name="com.aula.mobile_hivemind.ui.auth.cadastro.CriacaoContaFragment"
