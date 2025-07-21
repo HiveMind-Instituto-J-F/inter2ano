@@ -1,14 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".ui.perfil.PerfilFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <!-- Botão Voltar -->
+    <ImageView
+        android:id="@+id/btnVoltar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</FrameLayout>
+    <!-- Título -->
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Configurações"
+        android:textSize="26sp"
+        android:textColor="#000"
+        android:fontFamily="@font/lexend_deca_semibold"
+        app:layout_constraintTop_toTopOf="@id/btnVoltar"
+        app:layout_constraintBottom_toBottomOf="@id/btnVoltar"
+        app:layout_constraintStart_toEndOf="@id/btnVoltar"
+        android:layout_marginStart="16dp" />
+
+    <!-- Seção Geral -->
+    <TextView
+        android:id="@+id/txtGeral"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Geral"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:fontFamily="@font/lexend_deca_semibold"
+        app:layout_constraintTop_toBottomOf="@id/txtTitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp" />
+
+    <!-- Item: Informação da conta -->
+    <include
+        layout="@layout/item_settings_row"
+        android:id="@+id/itemInfoConta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtGeral"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        app:icon="@drawable/ic_perfil"
+        app:label="Informação da conta" />
+
+    <!-- Item: Endereço da conta -->
+    <include
+        layout="@layout/item_settings_row"
+        android:id="@+id/itemEndereco"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/itemInfoConta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:icon="@drawable/ic_map"
+        app:label="Endereço da conta" />
+
+    <!-- Item: Métodos de pagamento -->
+    <include
+        layout="@layout/item_settings_row"
+        android:id="@+id/itemPagamento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/itemEndereco"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:icon="@drawable/ic_payment"
+        app:label="Métodos de pagamento" />
+
+    <!-- Item: Aparência -->
+    <include
+        layout="@layout/item_settings_row"
+        android:id="@+id/itemAparencia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/itemPagamento"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:icon="@drawable/ic_mode"
+        app:label="Aparência" />
+
+    <!-- Item: Notificações (Geral) -->
+    <include
+        layout="@layout/item_settings_row"
+        android:id="@+id/itemNotificacoesGeral"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/itemAparencia"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:icon="@drawable/ic_notifications_black_24dp"
+        app:label="Notificações" />
+
+    <!-- Seção Suporte -->
+    <TextView
+        android:id="@+id/txtSuporte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Suporte"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:fontFamily="@font/lexend_deca_semibold"
+        app:layout_constraintTop_toBottomOf="@id/itemNotificacoesGeral"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp" />
+
+    <!-- Item: Reportar um erro -->
+    <include
+        layout="@layout/item_settings_row"
+        android:id="@+id/itemErro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtSuporte"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        app:icon="@drawable/ic_error"
+        app:label="Reportar um erro" />
+
+    <!-- Item: Ajuda (Suporte - icon question) -->
+    <include
+        layout="@layout/item_settings_row"
+        android:id="@+id/itemAjuda"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/itemErro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:icon="@drawable/ic_question"
+        app:label="Ajuda" />
+
+    <!-- Botão: Sair da conta -->
+    <Button
+        android:id="@+id/btnSair"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Sair da conta"
+        android:textColor="#6B3EFF"
+        android:backgroundTint="#00000000"
+        android:background="@drawable/border_button"
+        app:layout_constraintTop_toBottomOf="@id/itemAjuda"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

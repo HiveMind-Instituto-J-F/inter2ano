@@ -21,6 +21,12 @@
         android:theme="@style/Theme.Mobile_hivemind"
         tools:targetApi="31">
         <activity
+            android:name=".ui.auth.cadastro.CadastroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.login.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashScreenActivity"
             android:exported="false" />
         <activity
