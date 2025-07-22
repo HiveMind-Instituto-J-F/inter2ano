@@ -2,67 +2,63 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
+    android:id="@+id/frameLayoutIE"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
     tools:context=".ui.auth.cadastro.CadastroBasicoFragment">
 
-    <!-- Título -->
-
-    <!-- Telefone -->
     <TextView
         android:id="@+id/txtTitulo"
         android:layout_width="379dp"
-        android:layout_height="83dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
         android:layout_marginBottom="39dp"
         android:fontFamily="@font/lexend_deca_semibold"
-        android:text="Informação do responsável"
+        android:text="Informações básicas"
         android:textColor="#000000"
         android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutNOMEEMP"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutEMAILCONT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutNOMEEMP"
+        android:id="@+id/textInputLayoutEMAILCONT"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="390dp"
         android:layout_height="60dp"
-        android:hint="Telefone"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutSENHA"
+        android:hint="Email de contato"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutCNPJ"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTitulo">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextNOMEEMP"
+            android:id="@+id/editTextEMAILCONT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:text="Initial text" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Nome -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutSENHA"
+        android:id="@+id/textInputLayoutCNPJ"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="390dp"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
-        android:hint="Nome"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutCONFSENHA"
+        android:hint="CNPJ"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutCNAE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNOMEEMP">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEMAILCONT">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextSENHA"
+            android:id="@+id/editTextCNPJ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -70,22 +66,21 @@
             android:text="41.586.734/0001-81" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- CPF -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutCONFSENHA"
+        android:id="@+id/textInputLayoutCNAE"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="390dp"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
-        android:hint="CPF"
-        app:layout_constraintBottom_toTopOf="@+id/layoutRGUpload"
+        android:hint="CNAE"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutIE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSENHA">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCNPJ">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextCONFSENHA"
+            android:id="@+id/editTextCNAE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -93,30 +88,49 @@
             android:text="2222-6/00" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Upload RG -->
-    <LinearLayout
-        android:id="@+id/layoutRGUpload"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutIE"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="390dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="30dp"
-        android:orientation="vertical"
-        android:background="@drawable/borda_anexo"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCONFSENHA"
+        android:hint="Inscrição Estadual"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutDATAFUND"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCNAE">
 
-        <TextView
-            android:id="@+id/btnAnexarRG"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextRG"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:drawableStart="@drawable/ic_clipn"
-            android:drawablePadding="8dp"
-            android:fontFamily="@font/lexend_deca"
-            android:gravity="center_vertical"
-            android:paddingStart="12dp"
-            android:text="Adicionar anexo"
-            android:textSize="16sp" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLines="1"
+            android:text="142.270.790.110" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutDATAFUND"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="390dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:hint="Data de fundação"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutCOMP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutIE">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextDATAFUND"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:maxLines="1"
+            android:text="22/10/2019" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/txtContinuar"

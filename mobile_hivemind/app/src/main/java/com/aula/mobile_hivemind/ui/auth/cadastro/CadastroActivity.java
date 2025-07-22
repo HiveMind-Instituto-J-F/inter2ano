@@ -24,7 +24,7 @@ public class CadastroActivity extends AppCompatActivity {
 
         // Configura a navegação (se você estiver usando Navigation Component no cadastro também)
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.cadastroBasicoFragment, R.id.cadastroEnderecoFragment) // exemplo de fragments possíveis
+                R.id.cadastroBasicoFragment, R.id.cadastroEnderecoFragment, R.id.cadastroEstruturaFragment, R.id.cadastroPessoalFragment, R.id.criacaoContaFragment) // exemplo de fragments possíveis
                 .build();
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

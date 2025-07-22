@@ -18,26 +18,26 @@
         android:text="Estrutura e Operação"
         android:textColor="#000000"
         android:textSize="33dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutNOMEEMP"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutEMAILCONT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutNOMEEMP"
+        android:id="@+id/textInputLayoutEMAILCONT"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="390dp"
         android:layout_height="60dp"
         android:hint="Porte da empresa"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutSENHA"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutCNPJ"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTitulo">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextNOMEEMP"
+            android:id="@+id/editTextEMAILCONT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
@@ -45,20 +45,20 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutSENHA"
+        android:id="@+id/textInputLayoutCNPJ"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="390dp"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
         android:hint="Quantidade de setores"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutCONFSENHA"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutCNAE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNOMEEMP">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEMAILCONT">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextSENHA"
+            android:id="@+id/editTextCNPJ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -67,20 +67,20 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutCONFSENHA"
+        android:id="@+id/textInputLayoutCNAE"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="390dp"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
         android:hint="Quantidade de alas por setor"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutRG"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutIE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSENHA">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCNPJ">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextCONFSENHA"
+            android:id="@+id/editTextCNAE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -89,7 +89,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutRG"
+        android:id="@+id/textInputLayoutIE"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="390dp"
         android:layout_height="60dp"
@@ -100,7 +100,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCONFSENHA">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCNAE">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextRG"

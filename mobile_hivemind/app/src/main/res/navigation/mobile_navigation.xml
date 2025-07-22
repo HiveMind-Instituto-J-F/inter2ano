@@ -67,11 +67,7 @@
         android:id="@+id/criacaoContaFragment"
         android:name="com.aula.mobile_hivemind.ui.auth.cadastro.CriacaoContaFragment"
         android:label="fragment_criacao_conta"
-        tools:layout="@layout/fragment_criacao_conta" >
-        <action
-            android:id="@+id/action_criacaoContaFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
-    </fragment>
+        tools:layout="@layout/fragment_criacao_conta" />
     <fragment
         android:id="@+id/verificacaoCellFragment"
         android:name="com.aula.mobile_hivemind.ui.auth.VerificacaoCellFragment"
