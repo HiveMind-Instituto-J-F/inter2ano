@@ -45,5 +45,6 @@
     <fragment
         android:id="@+id/addParadaFragment"
         android:name="com.aula.mobile_hivemind.ui.paradas.AddParadaFragment"
-        android:label="AddParadaFragment" />
+        android:label="AddParadaFragment"
+        tools:layout="@layout/fragment_add_parada"/>
 </navigation>
