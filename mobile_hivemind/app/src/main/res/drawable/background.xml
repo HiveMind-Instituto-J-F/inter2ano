@@ -9,7 +9,7 @@
         android:pathData="M0,0h375v812h-375z"/>
     <path
         android:pathData="M0,0h375v812h-375z"
-        android:fillColor="#D9CCFE"/>
+        android:fillColor="#EDE7FF"/>
     <path
         android:pathData="M0,198h374v614h-374z"
         android:strokeAlpha="0.8"
@@ -27,7 +27,7 @@
             android:endX="186.11"
             android:endY="189"
             android:type="linear">
-          <item android:offset="0" android:color="#FFD9CCFE"/>
+          <item android:offset="0" android:color="#FFEDE7FF"/>
           <item android:offset="0.66" android:color="#FFFFFFFF"/>
         </gradient>
       </aapt:attr>

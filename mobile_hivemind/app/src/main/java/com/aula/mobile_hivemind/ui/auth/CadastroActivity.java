@@ -1,4 +1,4 @@
-package com.aula.mobile_hivemind.ui.auth.cadastro;
+package com.aula.mobile_hivemind.ui.auth;
 
 import android.os.Bundle;
 
@@ -22,12 +22,17 @@ public class CadastroActivity extends AppCompatActivity {
         binding = ActivityCadastroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Configura a navegação (se você estiver usando Navigation Component no cadastro também)
+
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.cadastroBasicoFragment, R.id.cadastroEnderecoFragment, R.id.cadastroEstruturaFragment, R.id.cadastroPessoalFragment, R.id.criacaoContaFragment) // exemplo de fragments possíveis
-                .build();
+                R.id.cadastroBasicoFragment,
+                R.id.cadastroEnderecoFragment,
+                R.id.cadastroEstruturaFragment,
+                R.id.cadastroPessoalFragment,
+                R.id.criacaoContaFragment
+        ).build();
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
     }
 }
