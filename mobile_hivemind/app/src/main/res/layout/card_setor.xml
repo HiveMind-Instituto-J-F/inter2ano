@@ -33,7 +33,7 @@
             android:background="@drawable/bg_icon_circle"
             android:padding="6dp"
             android:src="@drawable/ic_exclamation"
-            android:tint="#0051FF"
+            app:tint="#0051FF"
             android:contentDescription="Alerta" />
 
         <!-- Título principal -->

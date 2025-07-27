@@ -1,9 +1,9 @@
 package com.aula.mobile_hivemind.recyclerViewParadas;
 
 public class ParadaModel {
-    private String nome;
-    private String setor;
-    private String hora;
+    private final String nome;
+    private final String setor;
+    private final String hora;
 
     public ParadaModel(String nome, String setor, String hora) {
         this.nome = nome;

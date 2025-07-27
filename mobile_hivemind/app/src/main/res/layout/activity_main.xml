@@ -35,13 +35,12 @@
     <!-- Secondary FABs (initially hidden) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_op1"
-        style="@style/Widget.Material3.FloatingActionButton.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_op1"
+        android:src="@drawable/ic_add"
         android:layout_marginBottom="140dp"
         android:visibility="gone"
-        app:tint="@color/white"
+        app:tint="#4F378A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,19 +48,17 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_op2"
-        style="@style/Widget.Material3.FloatingActionButton.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_op2"
+        android:src="@drawable/ic_redo"
         android:layout_marginBottom="200dp"
         android:visibility="gone"
-        app:tint="@color/white"
+        app:tint="#4F378A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintHorizontal_bias="0.5" />
 
-    <!-- Main FAB (abre/fecha o menu) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_main"
         android:layout_width="wrap_content"
