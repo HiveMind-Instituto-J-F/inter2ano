@@ -21,18 +21,22 @@
         app:navGraph="@navigation/mobile_navigation" />
 
     <!-- Bottom Navigation -->
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
-        android:layout_height="99dp"
-        android:background="@drawable/bottom_nav_bg"
+        android:layout_height="80dp"
         android:backgroundTintMode="src_in"
+        android:foregroundTint="#00FFFFFF"
+        app:backgroundTint="#2A2A2A"
+        app:elevation="0dp"
         app:itemIconSize="21dp"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
-    <!-- Secondary FABs (initially hidden) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_op1"
         android:layout_width="wrap_content"
@@ -40,8 +44,9 @@
         android:src="@drawable/ic_add"
         android:layout_marginBottom="140dp"
         android:visibility="gone"
+        android:backgroundTint="#EADDFF"
         app:tint="#4F378A"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:elevation="0dp" app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintHorizontal_bias="0.5" />
@@ -53,8 +58,9 @@
         android:src="@drawable/ic_redo"
         android:layout_marginBottom="200dp"
         android:visibility="gone"
+        android:backgroundTint="#EADDFF"
         app:tint="#4F378A"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:elevation="0dp" app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintHorizontal_bias="0.5" />

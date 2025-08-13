@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="OtpBox.Large">
+    <style name="OtpBox">
         <item name="android:layout_width">64dp</item>
         <item name="android:layout_height">64dp</item>
         <item name="android:background">@drawable/otp_background</item>
@@ -31,6 +31,24 @@
         <item name="android:textColor">#000000</item>
         <item name="android:textSize">15sp</item>
         <item name="android:fontFamily">@font/lexend_deca</item>
+    </style>
+
+    <style name="CalendarHeader" parent="TextAppearance.MaterialCalendarWidget.Header">
+        <item name="android:textColor">#1A1A1A</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/lexend_deca</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="CalendarWeek" parent="TextAppearance.MaterialCalendarWidget.WeekDay">
+        <item name="android:textColor">#999999</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="CalendarDate" parent="TextAppearance.MaterialCalendarWidget.Date">
+        <item name="android:textColor">#1A1A1A</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
 </resources>

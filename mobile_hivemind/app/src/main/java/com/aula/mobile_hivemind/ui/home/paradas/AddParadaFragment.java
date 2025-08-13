@@ -1,4 +1,4 @@
-package com.aula.mobile_hivemind.ui.paradas;
+package com.aula.mobile_hivemind.ui.home.paradas;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

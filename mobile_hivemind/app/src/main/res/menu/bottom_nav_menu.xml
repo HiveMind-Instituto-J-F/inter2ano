@@ -10,15 +10,15 @@
 
     <item
         android:id="@+id/navigation_calendar"
-        android:icon="@drawable/calendar"
-        android:iconTint="#B5A0F3"
-        android:title="Calendario" />
-
-    <item
-        android:id="@+id/navigation_dashboard"
         android:icon="@drawable/graph"
         android:iconTint="#B5A0F3"
         android:title="Dashboard" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/calendar"
+        android:iconTint="#B5A0F3"
+        android:title="Calendário" />
     <item
         android:id="@+id/navigation_perfil"
         android:icon="@drawable/profile"

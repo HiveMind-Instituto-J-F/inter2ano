@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/lexend_deca_semibold"
         android:text="Configurações"
         android:textColor="#FFFFFF"
@@ -50,14 +50,14 @@
         android:id="@+id/txtGeral"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:layout_marginStart="16dp"
-        android:text="Geral"
-        android:textSize="18sp"
-        android:textColor="#000000"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/lexend_deca_semibold"
-        app:layout_constraintTop_toBottomOf="@id/txtTitulo"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="Geral"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTitulo" />
 
     <!-- Itens de configuração -->
     <!-- Informação da conta -->

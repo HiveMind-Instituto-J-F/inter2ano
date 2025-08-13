@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".ui.paradas.ConfirmationFragment" >
+    tools:context=".ui.home.paradas.ConfirmationFragment" >
 
 
     <ImageView
@@ -28,6 +28,7 @@
         android:layout_marginBottom="436dp"
         android:fontFamily="@font/lexend_deca_medium"
         android:text="Parada adicionada!"
+        android:textColor="#000000"
         android:textSize="31dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,6 +45,7 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:text="A sua parada foi adicionada e logo um funcionário da manurentção irá arrumar o problema!"
+        android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

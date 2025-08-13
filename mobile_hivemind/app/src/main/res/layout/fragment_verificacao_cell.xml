@@ -98,27 +98,32 @@
 
         <EditText
             android:id="@+id/etCode1"
-            style="@style/OtpBox.Large" />
+            style="@style/OtpBox"
+            tools:ignore="SpeakableTextPresentCheck"/>
 
         <EditText
             android:id="@+id/etCode2"
-            style="@style/OtpBox.Large"
-            android:layout_marginStart="16dp" />
+            style="@style/OtpBox"
+            android:layout_marginStart="16dp"
+            tools:ignore="SpeakableTextPresentCheck"/>
 
         <EditText
             android:id="@+id/etCode3"
-            style="@style/OtpBox.Large"
-            android:layout_marginStart="16dp" />
+            style="@style/OtpBox"
+            android:layout_marginStart="16dp"
+            tools:ignore="SpeakableTextPresentCheck"/>
 
         <EditText
             android:id="@+id/etCode4"
-            style="@style/OtpBox.Large"
-            android:layout_marginStart="16dp" />
+            style="@style/OtpBox"
+            android:layout_marginStart="16dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <EditText
             android:id="@+id/etCode5"
-            style="@style/OtpBox.Large"
-            android:layout_marginStart="16dp" />
+            style="@style/OtpBox"
+            android:layout_marginStart="16dp"
+            tools:ignore="SpeakableTextPresentCheck"/>
     </LinearLayout>
 
 

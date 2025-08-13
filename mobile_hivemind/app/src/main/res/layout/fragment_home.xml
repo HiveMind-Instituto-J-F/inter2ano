@@ -23,15 +23,15 @@
         android:id="@+id/searchCard"
         android:layout_width="0dp"
         android:layout_height="52dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
+        app:cardBackgroundColor="#2A2A2A"
         app:cardCornerRadius="16dp"
         app:cardElevation="0dp"
-        app:cardBackgroundColor="#2A2A2A"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/filterButton"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
         <SearchView
             android:id="@+id/searchView"
@@ -79,7 +79,7 @@
         android:layout_marginEnd="112dp"
         android:layout_marginBottom="24dp"
         android:fontFamily="@font/lexend_deca_semibold"
-        android:text="[Nome da industria]"
+        android:text="Seja bem-vindo(a)!"
         android:textColor="#FFFFFF"
         android:textSize="19sp"
         app:layout_constraintBottom_toTopOf="@+id/searchCard"
@@ -87,59 +87,29 @@
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-    <include
-        android:id="@+id/cardSetor"
-        layout="@layout/card_setor"
-        android:layout_width="340dp"
-        android:layout_height="140dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchCard" />
-
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroupSetores"
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollViewChips"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="377dp"
-        android:orientation="horizontal"
+        android:layout_marginTop="70dp"
         android:paddingHorizontal="12dp"
-        app:chipSpacing="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewParadas"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewParadas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardSetor"
-        app:selectionRequired="true"
-        app:singleSelection="true">
+        app:layout_constraintTop_toBottomOf="@id/searchCard">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipTodos"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:text="Todos"
-            app:checkedIconVisible="false" />
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupSetores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:chipSpacing="8dp"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true"></com.google.android.material.chip.ChipGroup>
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipSetorA"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:text="Setor A"
-            app:checkedIconVisible="false" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipSetorB"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:text="Setor B"
-            app:checkedIconVisible="false" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipSetorC"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:text="Setor C"
-            app:checkedIconVisible="false" />
-    </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -147,6 +117,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="18dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="18dp"
         android:clipToPadding="false"
         android:paddingTop="12dp"
@@ -155,8 +126,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chipGroupSetores"
-        tools:listitem="@layout/parada_item" />
+        app:layout_constraintTop_toBottomOf="@id/horizontalScrollViewChips"
+        tools:listitem="@layout/parada_item_recycleview_principal" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

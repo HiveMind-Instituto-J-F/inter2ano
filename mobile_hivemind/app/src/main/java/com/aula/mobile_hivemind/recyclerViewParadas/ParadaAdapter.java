@@ -20,13 +20,20 @@ public class ParadaAdapter extends RecyclerView.Adapter<ParadaAdapter.MaquinaVie
         this.listaMaquinas = listaMaquinas;
     }
 
+    // *** NOVO MÉTODO ***
+    // Este método permite atualizar os dados no adapter e notificar o RecyclerView
+    public void updateData(List<ParadaModel> newData) {
+        this.listaMaquinas = newData;
+        notifyDataSetChanged(); // Notifica o RecyclerView que os dados foram alterados
+    }
+
     public static class MaquinaViewHolder extends RecyclerView.ViewHolder {
         TextView tvNome_IdMaq, tvSetprMaq, tvTempoParada;
 
         public MaquinaViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNome_IdMaq = itemView.findViewById(R.id.tvNome_IdMaq);
-            tvSetprMaq = itemView.findViewById(R.id.tvSetprMaq);
+            tvSetprMaq = itemView.findViewById(R.id.tvSetorMaq);
             tvTempoParada = itemView.findViewById(R.id.tvTempoParada);
         }
     }
@@ -35,7 +42,7 @@ public class ParadaAdapter extends RecyclerView.Adapter<ParadaAdapter.MaquinaVie
     @Override
     public MaquinaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.parada_item, parent, false);
+                .inflate(R.layout.parada_item_recycleview_principal, parent, false);
         return new MaquinaViewHolder(itemView);
     }
 
@@ -52,4 +59,3 @@ public class ParadaAdapter extends RecyclerView.Adapter<ParadaAdapter.MaquinaVie
         return listaMaquinas.size();
     }
 }
-

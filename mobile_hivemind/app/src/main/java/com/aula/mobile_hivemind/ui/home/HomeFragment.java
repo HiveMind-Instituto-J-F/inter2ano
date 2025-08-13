@@ -5,7 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-// import android.widget.Toast; // Uncomment if you want to use Toast messages
+// import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +20,7 @@ import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -31,19 +32,13 @@ public class HomeFragment extends Fragment {
     private Chip chipTodos;
 
     private RecyclerView recyclerViewParadas;
+    private ParadaAdapter paradaAdapter; // *** NOVO: Declare o adapter como variável de instância ***
 
-    private List<ParadaModel> allParadasList;
+    private List<ParadaModel> allParadasList; // Lista original completa de todas as paradas
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // If using View Binding:
-        // binding = FragmentHomeBinding.inflate(inflater, container, false);
-        // View view = binding.getRoot();
-
-        // If not using View Binding (classic findViewById):
-        // Make sure this matches your layout file name
-
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
@@ -51,19 +46,13 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Get references to your views
-        // If using View Binding:
-        // chipGroupSetores = binding.chipGroupSetores;
-        // recyclerViewParadas = binding.recyclerViewParadas;
-
-        // If not using View Binding:
         chipGroupSetores = view.findViewById(R.id.chipGroupSetores);
         recyclerViewParadas = view.findViewById(R.id.recyclerViewParadas);
 
-        // 1. Fetch ALL parada items from your database initially
-        allParadasList = getAllParadasFromDatabase(); // Implement this method
+        // 1. Obtenha TODOS os itens de parada do seu "banco de dados" inicialmente
+        allParadasList = getAllParadasFromDatabase();
 
-        // 2. Extract unique sectors from the fetched parada items
+        // 2. Extraia os setores únicos dos itens de parada obtidos
         Set<String> uniqueSectors = new HashSet<>();
         for (ParadaModel parada : allParadasList) {
             if (parada.getSetor() != null && !parada.getSetor().trim().isEmpty()) {
@@ -71,21 +60,22 @@ public class HomeFragment extends Fragment {
             }
         }
         List<String> sectorsList = new ArrayList<>(uniqueSectors);
-        // Optional: Sort the sectors alphabetically
-        // Collections.sort(sectorsList);
 
-        // 3. Dynamically create and add Chips based on unique sectors
+        // 3. Ordene os setores alfabeticamente
+        Collections.sort(sectorsList);
+
+        // 4. Crie e adicione dinamicamente os Chips com base nos setores únicos
         addChipsToChipGroup(sectorsList);
 
-        // 4. Set up the RecyclerView with initial data (all paradas)
-        // We create and set the adapter here for the initial display
+        // 5. Configure o RecyclerView com os dados iniciais (todas as paradas)
         recyclerViewParadas.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerViewParadas.setAdapter(new ParadaAdapter(allParadasList)); // Pass all data initially
+        // *** NOVO: Inicialize o adapter APENAS UMA VEZ ***
+        paradaAdapter = new ParadaAdapter(new ArrayList<>(allParadasList)); // Passa uma cópia para evitar modificações diretas
+        recyclerViewParadas.setAdapter(paradaAdapter);
     }
 
     private void addChipsToChipGroup(List<String> sectors) {
         chipGroupSetores.removeAllViews();
-
 
         chipTodos = new Chip(getContext(), null, 0);
         chipTodos.setText("Todos");
@@ -102,73 +92,56 @@ public class HomeFragment extends Fragment {
             chipGroupSetores.addView(chip);
         }
 
-        // Set up a listener for chip selection
         chipGroupSetores.setOnCheckedStateChangeListener(new ChipGroup.OnCheckedStateChangeListener() {
             @Override
             public void onCheckedChanged(@NonNull ChipGroup group, @NonNull List<Integer> checkedIds) {
                 if (checkedIds.isEmpty()) {
-                    // This can happen if a chip is unchecked; for singleSelection, we want one always checked
-                    chipTodos.setChecked(true); // Re-select "Todos"
-                    Log.d("HomeFragment", "No chip selected. Re-selecting 'Todos'.");
-                    // Re-create and set adapter with all data
-                    recyclerViewParadas.setAdapter(new ParadaAdapter(allParadasList));
+                    chipTodos.setChecked(true);
+                    Log.d("HomeFragment", "Nenhum chip selecionado. Re-selecionando 'Todos'.");
+                    // *** NOVO: Use o método updateData do adapter ***
+                    paradaAdapter.updateData(new ArrayList<>(allParadasList)); // Passa uma cópia de todos os dados
                 } else {
                     int selectedChipId = checkedIds.get(0);
                     Chip selectedChip = group.findViewById(selectedChipId);
                     if (selectedChip != null) {
                         String selectedSectorName = selectedChip.getText().toString();
-                        Log.d("HomeFragment", "Selected sector: " + selectedSectorName);
+                        Log.d("HomeFragment", "Setor selecionado: " + selectedSectorName);
 
                         if (selectedSectorName.equals("Todos")) {
-                            // Re-create and set adapter with all data
-                            recyclerViewParadas.setAdapter(new ParadaAdapter(allParadasList));
+                            // *** NOVO: Use o método updateData do adapter ***
+                            paradaAdapter.updateData(new ArrayList<>(allParadasList)); // Passa uma cópia de todos os dados
                         } else {
-                            // Filter the 'allParadasList' based on the selected sector
                             List<ParadaModel> filteredList = filterParadasBySector(selectedSectorName);
-                            // Re-create and set adapter with filtered data
-                            recyclerViewParadas.setAdapter(new ParadaAdapter(filteredList));
+                            // *** NOVO: Use o método updateData do adapter ***
+                            paradaAdapter.updateData(filteredList);
                         }
-                        // Optional: Toast.makeText(getContext(), "Selected: " + selectedSectorName, Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         });
     }
 
-    /**
-     * Implement this method to fetch all ParadaModel objects from your database.
-     * This is where your Room DAO or SQLiteOpenHelper queries would go.
-     */
     private List<ParadaModel> getAllParadasFromDatabase() {
         List<ParadaModel> paradas = new ArrayList<>();
-        // --- SIMULATE DATABASE FETCH ---
-        // Replace with your actual database query (e.g., Room DAO call)
-        paradas.add(new ParadaModel("1", "Parada Estação Central", "Setor A"));
-        paradas.add(new ParadaModel("2", "Parada Praça da Matriz", "Setor B"));
-        paradas.add(new ParadaModel("3", "Parada Rua do Comércio", "Setor A"));
-        paradas.add(new ParadaModel("4", "Parada Avenida Principal", "Setor C"));
-        paradas.add(new ParadaModel("5", "Parada Terminal Rodoviário", "Setor D"));
-        paradas.add(new ParadaModel("6", "Parada Mercado Público", "Setor B"));
-        paradas.add(new ParadaModel("7", "Parada Hospital Municipal", "Setor A"));
-        paradas.add(new ParadaModel("8", "Parada Centro de Convenções", "Setor E"));
-        paradas.add(new ParadaModel("9", "Parada Museu Histórico", "Setor C"));
-        paradas.add(new ParadaModel("10", "Parada Parque Urbano", "Setor D"));
-        // --- END SIMULATION ---
+        paradas.add(new ParadaModel("Parada Estação Central", "Setor A", "08:00"));
+        paradas.add(new ParadaModel("Parada Praça da Matriz", "Setor B", "08:15"));
+        paradas.add(new ParadaModel("Parada Rua do Comércio", "Setor A", "08:30"));
+        paradas.add(new ParadaModel("Parada Avenida Principal", "Setor C", "08:45"));
+        paradas.add(new ParadaModel("Parada Terminal Rodoviário", "Setor D", "09:00"));
+        paradas.add(new ParadaModel("Parada Mercado Público", "Setor B", "09:15"));
+        paradas.add(new ParadaModel("Parada Hospital Municipal", "Setor A", "09:30"));
+        paradas.add(new ParadaModel("Parada Centro de Convenções", "Setor E", "09:45"));
+        paradas.add(new ParadaModel("Parada Museu Histórico", "Setor C", "10:00"));
+        paradas.add(new ParadaModel("Parada Parque Urbano", "Setor D", "10:15"));
         return paradas;
     }
 
-    /**
-     * Filters the 'allParadasList' based on the selected sector name.
-     * Assumes allParadasList is already populated.
-     */
     private List<ParadaModel> filterParadasBySector(String sectorName) {
-        // For Java 8 and above (Android API 24+), you can use streams:
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             return allParadasList.stream()
                     .filter(parada -> parada.getSetor() != null && parada.getSetor().equals(sectorName))
                     .collect(Collectors.toList());
         } else {
-            // For older Android versions (API < 24):
             List<ParadaModel> filteredList = new ArrayList<>();
             for (ParadaModel parada : allParadasList) {
                 if (parada.getSetor() != null && parada.getSetor().equals(sectorName)) {
@@ -178,13 +151,4 @@ public class HomeFragment extends Fragment {
             return filteredList;
         }
     }
-
-    // If using View Binding, uncomment this:
-    /*
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null; // Clear the binding reference
-    }
-    */
 }
