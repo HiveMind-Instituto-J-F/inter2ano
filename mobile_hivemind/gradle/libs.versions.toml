@@ -16,6 +16,7 @@ firebaseAi = "17.0.0"
 activity = "1.10.1"
 playServicesAuth = "21.4.0"
 playServicesBase = "18.7.2"
+firebaseAuth = "24.0.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -33,6 +34,7 @@ firebase-ai = { group = "com.google.firebase", name = "firebase-ai", version.ref
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 play-services-base = { group = "com.google.android.gms", name = "play-services-base", version.ref = "playServicesBase" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.material.calendarview)
     implementation(libs.activity)
     implementation(libs.play.services.base)
+    implementation(libs.firebase.auth)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

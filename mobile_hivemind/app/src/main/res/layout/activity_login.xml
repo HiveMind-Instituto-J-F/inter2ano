@@ -132,7 +132,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnGoogleSignIn" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnEntrar"
         android:layout_width="360dp"
         android:layout_height="50dp"
         android:layout_marginStart="15dp"
@@ -156,7 +156,7 @@
         android:background="#CCCCCC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/btnGoogleSignIn"
