@@ -54,8 +54,29 @@ public class CalendarFragment extends Fragment {
         calendarView.setLeftArrowMask(null);
         calendarView.setRightArrowMask(null);
 
+        // Decora os dias do mês atual
+        calendarView.addDecorator(new DayViewDecorator() {
+            @Override
+            public boolean shouldDecorate(CalendarDay day) {
+                Calendar systemCalendar = Calendar.getInstance();
+                int currentMonth = systemCalendar.get(Calendar.MONTH);
+                int currentYear = systemCalendar.get(Calendar.YEAR);
+
+                Calendar dayCalendar = day.getCalendar();
+                int dayMonth = dayCalendar.get(Calendar.MONTH);
+                int dayYear = dayCalendar.get(Calendar.YEAR);
+
+                return dayMonth == currentMonth && dayYear == currentYear;
+            }
+
+            @Override
+            public void decorate(DayViewFacade view) {
+                view.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                view.addSpan(new ForegroundColorSpan(0xFFFFFFFF)); // Branco
+            }
+        });
+
         // Decoradores visuais
-        decorateToday(calendarView);
         decorateOtherMonthDays(calendarView);
 
         // Lista completa de paradas
@@ -77,23 +98,6 @@ public class CalendarFragment extends Fragment {
         return root;
     }
 
-    private void decorateToday(MaterialCalendarView calendarView) {
-        CalendarDay today = CalendarDay.today();
-
-        calendarView.addDecorator(new DayViewDecorator() {
-            @Override
-            public boolean shouldDecorate(CalendarDay day) {
-                return day.equals(today);
-            }
-
-            @Override
-            public void decorate(DayViewFacade view) {
-                view.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#800080")));
-                view.addSpan(new ForegroundColorSpan(Color.WHITE));
-            }
-        });
-    }
-
     private void decorateOtherMonthDays(MaterialCalendarView calendarView) {
         Calendar systemCalendar = Calendar.getInstance();
         int currentMonth = systemCalendar.get(Calendar.MONTH);
@@ -110,10 +114,11 @@ public class CalendarFragment extends Fragment {
 
             @Override
             public void decorate(DayViewFacade view) {
-                view.addSpan(new ForegroundColorSpan(Color.WHITE));
+                view.addSpan(new ForegroundColorSpan(Color.GRAY));
             }
         });
     }
+
 
     private Map<CalendarDay, Integer> marcarParadasNoCalendario(MaterialCalendarView calendarView, List<ParadaModel> paradas) {
         Map<CalendarDay, Integer> mapaCores = new HashMap<>();

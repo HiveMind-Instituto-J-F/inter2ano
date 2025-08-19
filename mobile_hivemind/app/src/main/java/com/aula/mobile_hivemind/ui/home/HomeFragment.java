@@ -1,11 +1,10 @@
 package com.aula.mobile_hivemind.ui.home;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-// import android.widget.Toast;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,14 +26,14 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class HomeFragment extends Fragment {
-
+    ImageButton filtrarParadas;
     private ChipGroup chipGroupSetores;
     private Chip chipTodos;
 
     private RecyclerView recyclerViewParadas;
-    private ParadaAdapter paradaAdapter; // *** NOVO: Declare o adapter como variável de instância ***
+    private ParadaAdapter paradaAdapter;
 
-    private List<ParadaModel> allParadasList; // Lista original completa de todas as paradas
+    private List<ParadaModel> allParadasList;
 
     @Nullable
     @Override
@@ -46,13 +45,12 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        filtrarParadas = view.findViewById(R.id.filterButton);
         chipGroupSetores = view.findViewById(R.id.chipGroupSetores);
         recyclerViewParadas = view.findViewById(R.id.recyclerViewParadas);
 
-        // 1. Obtenha TODOS os itens de parada do seu "banco de dados" inicialmente
         allParadasList = getAllParadasFromDatabase();
 
-        // 2. Extraia os setores únicos dos itens de parada obtidos
         Set<String> uniqueSectors = new HashSet<>();
         for (ParadaModel parada : allParadasList) {
             if (parada.getSetor() != null && !parada.getSetor().trim().isEmpty()) {
@@ -61,65 +59,85 @@ public class HomeFragment extends Fragment {
         }
         List<String> sectorsList = new ArrayList<>(uniqueSectors);
 
-        // 3. Ordene os setores alfabeticamente
         Collections.sort(sectorsList);
 
-        // 4. Crie e adicione dinamicamente os Chips com base nos setores únicos
+        filtrarParadas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chipGroupSetores.getVisibility() == View.GONE) {
+                    chipGroupSetores.setVisibility(View.VISIBLE);
+                } else {
+                    chipGroupSetores.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        chipGroupSetores.setVisibility(View.GONE);
         addChipsToChipGroup(sectorsList);
 
-        // 5. Configure o RecyclerView com os dados iniciais (todas as paradas)
         recyclerViewParadas.setLayoutManager(new LinearLayoutManager(getContext()));
-        // *** NOVO: Inicialize o adapter APENAS UMA VEZ ***
-        paradaAdapter = new ParadaAdapter(new ArrayList<>(allParadasList)); // Passa uma cópia para evitar modificações diretas
+
+        paradaAdapter = new ParadaAdapter(new ArrayList<>(allParadasList));
         recyclerViewParadas.setAdapter(paradaAdapter);
     }
 
     private void addChipsToChipGroup(List<String> sectors) {
+        // Limpa chips antigos
         chipGroupSetores.removeAllViews();
 
+        // Chip "Todos"
         chipTodos = new Chip(getContext(), null, 0);
         chipTodos.setText("Todos");
         chipTodos.setId(View.generateViewId());
         chipTodos.setCheckable(true);
+        chipTodos.setClickable(true);
         chipTodos.setChecked(true);
-        chipGroupSetores.addView(chipTodos);
 
+        // Chips para cada setor
         for (String sectorName : sectors) {
             Chip chip = new Chip(getContext(), null, 0);
             chip.setText(sectorName);
             chip.setId(View.generateViewId());
             chip.setCheckable(true);
+            chip.setClickable(true);
             chipGroupSetores.addView(chip);
         }
 
-        chipGroupSetores.setOnCheckedStateChangeListener(new ChipGroup.OnCheckedStateChangeListener() {
-            @Override
-            public void onCheckedChanged(@NonNull ChipGroup group, @NonNull List<Integer> checkedIds) {
-                if (checkedIds.isEmpty()) {
-                    chipTodos.setChecked(true);
-                    Log.d("HomeFragment", "Nenhum chip selecionado. Re-selecionando 'Todos'.");
-                    // *** NOVO: Use o método updateData do adapter ***
-                    paradaAdapter.updateData(new ArrayList<>(allParadasList)); // Passa uma cópia de todos os dados
-                } else {
-                    int selectedChipId = checkedIds.get(0);
-                    Chip selectedChip = group.findViewById(selectedChipId);
-                    if (selectedChip != null) {
-                        String selectedSectorName = selectedChip.getText().toString();
-                        Log.d("HomeFragment", "Setor selecionado: " + selectedSectorName);
+        // Listener para atualização de seleção
+        chipGroupSetores.setOnCheckedStateChangeListener((group, checkedIds) -> {
+            if (checkedIds.isEmpty()) {
+                chipTodos.setChecked(true);
+                paradaAdapter.updateData(new ArrayList<>(allParadasList));
+            } else {
+                List<ParadaModel> filteredList = new ArrayList<>();
 
-                        if (selectedSectorName.equals("Todos")) {
-                            // *** NOVO: Use o método updateData do adapter ***
-                            paradaAdapter.updateData(new ArrayList<>(allParadasList)); // Passa uma cópia de todos os dados
+                // Verifica cada chip selecionado
+                for (int id : checkedIds) {
+                    Chip chip = group.findViewById(id);
+                    if (chip != null) {
+                        String name = chip.getText().toString();
+                        if (name.equals("Todos")) {
+                            // Se "Todos" estiver selecionado, ignora outros chips
+                            filteredList = new ArrayList<>(allParadasList);
+                            break;
                         } else {
-                            List<ParadaModel> filteredList = filterParadasBySector(selectedSectorName);
-                            // *** NOVO: Use o método updateData do adapter ***
-                            paradaAdapter.updateData(filteredList);
+                            chipTodos.setCheckable(false);
+                            filteredList.addAll(filterParadasBySector(name));
                         }
                     }
+                }
+
+                // Atualiza RecyclerView
+                paradaAdapter.updateData(filteredList);
+
+                // Se qualquer chip estiver marcado, desmarca "Todos"
+                if (!checkedIds.contains(chipTodos.getId())) {
+                    chipTodos.setChecked(false);
                 }
             }
         });
     }
+
 
     private List<ParadaModel> getAllParadasFromDatabase() {
         List<ParadaModel> paradas = new ArrayList<>();

@@ -101,6 +101,27 @@
                 android:textColor="#212121"
                 android:textColorHint="#9E9E9E" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Id do funcionario"
+                android:textColor="#212121"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editIdFunc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bottom_line_drawable"
+                android:hint="Escreva aqui"
+                android:inputType="text"
+                android:paddingBottom="8dp"
+                android:textColor="#212121"
+                android:textColorHint="#9E9E9E" />
+
             <!-- Número de série -->
             <TextView
                 android:layout_width="wrap_content"
