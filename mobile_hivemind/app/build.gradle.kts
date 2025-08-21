@@ -50,7 +50,16 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.play.services.base)
     implementation(libs.firebase.auth)
-    testImplementation(libs.junit)
+
+    // Dependências do JUnit 5
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.0-M1") // Versão mais recente
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.0-M1") // Versão mais recente
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.11.0-M1") // Opcional, para testes parametrizados
+
+    // Para rodar testes JUnit 4 e 5 juntos
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.11.0-M1") // Versão mais recente
+
+    testImplementation(libs.junit) // Mantém a dependência do JUnit 4 para compatibilidade
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 }
