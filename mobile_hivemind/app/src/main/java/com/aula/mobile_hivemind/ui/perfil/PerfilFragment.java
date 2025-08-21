@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.aula.mobile_hivemind.R;
-import com.aula.mobile_hivemind.ui.auth.login.LoginActivity;
+import com.aula.mobile_hivemind.auth.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class PerfilFragment extends Fragment {

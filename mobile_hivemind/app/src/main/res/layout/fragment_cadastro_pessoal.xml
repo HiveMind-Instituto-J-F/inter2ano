@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".ui.auth.cadastro.CadastroPessoalFragment">
+    tools:context=".auth.cadastro.CadastroPessoalFragment">
 
     <TextView
         android:id="@+id/txtTitulo"

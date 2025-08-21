@@ -1,4 +1,4 @@
-package com.aula.mobile_hivemind.ui.auth.cadastro;
+package com.aula.mobile_hivemind.auth.cadastro;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.aula.mobile_hivemind.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CadastroBasicoFragment#newInstance} factory method to
+ * Use the {@link CadastroPessoalFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CadastroBasicoFragment extends Fragment {
+public class CadastroPessoalFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class CadastroBasicoFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CadastroBasicoFragment() {
+    public CadastroPessoalFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class CadastroBasicoFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CadastroBasicoFragment.
+     * @return A new instance of fragment CadastroPessoalFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CadastroBasicoFragment newInstance(String param1, String param2) {
-        CadastroBasicoFragment fragment = new CadastroBasicoFragment();
+    public static CadastroPessoalFragment newInstance(String param1, String param2) {
+        CadastroPessoalFragment fragment = new CadastroPessoalFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class CadastroBasicoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cadastro_basico, container, false);
+        return inflater.inflate(R.layout.fragment_cadastro_pessoal, container, false);
     }
 }

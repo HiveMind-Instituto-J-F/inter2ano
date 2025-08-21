@@ -1,4 +1,4 @@
-package com.aula.mobile_hivemind.ui.auth;
+package com.aula.mobile_hivemind.auth;
 
 import android.os.Bundle;
 

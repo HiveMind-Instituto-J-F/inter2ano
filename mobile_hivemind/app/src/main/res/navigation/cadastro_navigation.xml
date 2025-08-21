@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/cadastroBasicoFragment"
-        android:name="com.aula.mobile_hivemind.ui.auth.cadastro.CadastroBasicoFragment"
+        android:name="com.aula.mobile_hivemind.auth.cadastro.CadastroBasicoFragment"
         tools:layout="@layout/fragment_cadastro_basico"
         android:label="fragment_cadastro_basico">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/cadastroEnderecoFragment"
-        android:name="com.aula.mobile_hivemind.ui.auth.cadastro.CadastroEnderecoFragment"
+        android:name="com.aula.mobile_hivemind.auth.cadastro.CadastroEnderecoFragment"
         tools:layout="@layout/fragment_cadastro_endereco"
         android:label="fragment_cadastro_endereco">
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/cadastroEstruturaFragment"
-        android:name="com.aula.mobile_hivemind.ui.auth.cadastro.CadastroEstruturaFragment"
+        android:name="com.aula.mobile_hivemind.auth.cadastro.CadastroEstruturaFragment"
         tools:layout="@layout/fragment_cadastro_estrutura"
         android:label="fragment_cadastro_estrutura">
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/cadastroPessoalFragment"
-        android:name="com.aula.mobile_hivemind.ui.auth.cadastro.CadastroPessoalFragment"
+        android:name="com.aula.mobile_hivemind.auth.cadastro.CadastroPessoalFragment"
         tools:layout="@layout/fragment_cadastro_pessoal"
         android:label="fragment_cadastro_pessoal">
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/verificacaoCellFragment"
-        android:name="com.aula.mobile_hivemind.ui.auth.VerificacaoCellFragment"
+        android:name="com.aula.mobile_hivemind.auth.VerificacaoCellFragment"
         tools:layout="@layout/fragment_verificacao_cell"
         android:label="fragment_verificacao_cell">
         <action
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/verificacaoEmailFragment"
-        android:name="com.aula.mobile_hivemind.ui.auth.VerificacaoEmailFragment"
+        android:name="com.aula.mobile_hivemind.auth.VerificacaoEmailFragment"
         tools:layout="@layout/fragment_verificacao_email"
         android:label="fragment_verificacao_email">
         <action
@@ -61,12 +61,12 @@
     </fragment>
     <fragment
         android:id="@+id/criacaoContaFragment"
-        android:name="com.aula.mobile_hivemind.ui.auth.cadastro.CriacaoContaFragment"
+        android:name="com.aula.mobile_hivemind.auth.cadastro.CriacaoContaFragment"
         tools:layout="@layout/fragment_criacao_conta"
         android:label="fragment_criacao_conta" />
     <activity
         android:id="@+id/loginActivity"
-        android:name="com.aula.mobile_hivemind.ui.auth.login.LoginActivity"
+        android:name="com.aula.mobile_hivemind.auth.login.LoginActivity"
         tools:layout="@layout/activity_login"
         android:label="activity_login" />
 </navigation>

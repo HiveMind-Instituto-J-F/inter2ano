@@ -1,4 +1,4 @@
-package com.aula.mobile_hivemind.ui.auth.cadastro;
+package com.aula.mobile_hivemind.auth.cadastro;
 
 import android.os.Bundle;
 
