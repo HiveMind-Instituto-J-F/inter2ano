@@ -21,12 +21,13 @@ jobs:
         cache: maven
 
     - name: Build and Test with Maven
-      run: mvn -B verify --file pom.xml
+      run: cd API_Rest && mvn -B verify --file pom.xml
 
     - name: Package application
-      run: mvn -B package --file pom.xml
+      run: cd API_Rest && mvn -B package --file pom.xml
 
     - name: Upload JAR Artifact
+      run: cd backend
       uses: actions/upload-artifact@v4
       with:
         name: springboot-app
