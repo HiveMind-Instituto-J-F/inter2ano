@@ -1,4 +1,4 @@
-name: Android DEV CI
+name: Android CI
 
 on:
   push:
@@ -13,12 +13,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: set up JDK 11
+
+    - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
-        java-version: '11'
+        java-version: '17'
         distribution: 'temurin'
         cache: gradle
 
-    - name: Build with Gradle
+    - name: Build project
       run: cd mobile_hivemind && chmod +x gradlew && ./gradlew build
