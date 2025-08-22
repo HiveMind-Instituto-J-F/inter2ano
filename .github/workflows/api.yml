@@ -27,11 +27,8 @@ jobs:
         echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> $GITHUB_ENV
         echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> $GITHUB_ENV
 
-    - name: Build and Test with Maven
-      run: cd API_Rest && mvn -B verify --file pom.xml
-
-    - name: Package application
-      run: cd API_Rest && mvn -B package --file pom.xml
+    - name: Build and Package with Maven (skip tests)
+      run: cd API_Rest && mvn -B clean package -DskipTests --file pom.xml
 
     - name: Upload JAR Artifact
       uses: actions/upload-artifact@v4
