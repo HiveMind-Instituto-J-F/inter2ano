@@ -1,4 +1,4 @@
-package com.aula.mobile_hivemind.auth.login;
+package com.aula.mobile_hivemind.auth;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.aula.mobile_hivemind.MainActivity;
 import com.aula.mobile_hivemind.R;
-import com.aula.mobile_hivemind.auth.CadastroActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;

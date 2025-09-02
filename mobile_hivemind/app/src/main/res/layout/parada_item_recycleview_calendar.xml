@@ -14,12 +14,6 @@
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <!-- Bolinha colorida + Horário -->
-
-        <!-- Botão de 3 pontinhos -->
-
-        <!-- Título do problema -->
-
         <TextView
             android:id="@+id/tvHorario"
             android:layout_width="wrap_content"

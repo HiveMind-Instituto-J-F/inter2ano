@@ -9,6 +9,10 @@
         android:title="@string/title_home" />
 
     <item
+        android:id="@+id/navigation_homerh"
+        android:icon="@drawable/home"
+        android:title="Home" />
+    <item
         android:id="@+id/navigation_calendar"
         android:icon="@drawable/graph"
         android:iconTint="#B5A0F3"
@@ -19,10 +23,5 @@
         android:icon="@drawable/calendar"
         android:iconTint="#B5A0F3"
         android:title="Calendário" />
-    <item
-        android:id="@+id/navigation_perfil"
-        android:icon="@drawable/profile"
-        android:iconTint="#B5A0F3"
-        android:title="Perfil" />
 
 </menu>

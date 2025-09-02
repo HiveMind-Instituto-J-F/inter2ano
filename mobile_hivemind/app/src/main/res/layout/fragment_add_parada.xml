@@ -90,14 +90,12 @@
                 android:textColor="#212121"
                 android:textSize="16sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/editCodigoColaborador"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/bottom_line_drawable"
-                android:hint="Digite o código"
-                android:inputType="text"
+                android:hint="Código do colaborador"
                 android:paddingBottom="8dp"
                 android:textColor="#212121"
                 android:textColorHint="#9E9E9E" />

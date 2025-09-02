@@ -38,44 +38,16 @@
         app:menu="@menu/bottom_nav_menu" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_op1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_add"
-        android:layout_marginBottom="140dp"
-        android:visibility="gone"
-        android:backgroundTint="#EADDFF"
-        app:tint="#4F378A"
-        app:elevation="0dp" app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.5" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_op2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_redo"
-        android:layout_marginBottom="200dp"
-        android:visibility="gone"
-        android:backgroundTint="#EADDFF"
-        app:tint="#4F378A"
-        app:elevation="0dp" app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.5" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_main"
         android:layout_width="wrap_content"
         android:layout_height="64dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="64dp"
         android:src="@drawable/baseline_add_24"
         app:backgroundTint="#EDEAEA"
         app:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
         app:tint="#9174ED"
         tools:ignore="SpeakableTextPresentCheck" />

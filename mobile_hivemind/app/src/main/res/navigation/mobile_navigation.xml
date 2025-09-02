@@ -14,19 +14,14 @@
     <fragment
         android:id="@+id/navigation_calendar"
         android:name="com.aula.mobile_hivemind.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="navigation_calendar"
         tools:layout="@layout/fragment_calendar" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.aula.mobile_hivemind.ui.calendar.CalendarFragment"
-        android:label="@string/title_notifications"
+        android:label="navigation_dashboard"
         tools:layout="@layout/fragment_dashboard" />
-    <fragment
-        android:id="@+id/navigation_perfil"
-        android:name="com.aula.mobile_hivemind.ui.perfil.PerfilFragment"
-        android:label="fragment_perfil"
-        tools:layout="@layout/fragment_perfil" />
     <activity
         android:id="@+id/splashScreenActivity"
         android:name="com.aula.mobile_hivemind.SplashScreenActivity"
@@ -47,4 +42,9 @@
         android:name="com.aula.mobile_hivemind.ui.home.paradas.AddParadaFragment"
         android:label="AddParadaFragment"
         tools:layout="@layout/fragment_add_parada"/>
+    <fragment
+        android:id="@+id/navigation_homerh"
+        android:name="com.aula.mobile_hivemind.ui.home_rh.HomeRhFragment"
+        android:label="navigation_homerh"
+        tools:layout="@layout/fragment_home_rh" />
 </navigation>
