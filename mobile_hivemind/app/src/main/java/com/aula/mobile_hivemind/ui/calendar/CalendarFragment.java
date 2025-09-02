@@ -72,7 +72,7 @@ public class CalendarFragment extends Fragment {
             @Override
             public void decorate(DayViewFacade view) {
                 view.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                view.addSpan(new ForegroundColorSpan(0xFFFFFFFF)); // Branco
+                view.addSpan(new ForegroundColorSpan(Color.BLACK)); // Branco
             }
         });
 

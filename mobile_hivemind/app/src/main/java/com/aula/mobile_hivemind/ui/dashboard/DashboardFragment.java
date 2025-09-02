@@ -50,9 +50,7 @@ public class DashboardFragment extends Fragment {
         recyclerViewProgressBars = binding.recyclerViewProgressBars;
 
         // Atualiza a data para o dia de hoje
-        textData.setText("Hoje dia " + LocalDate.now().getDayOfMonth() + "/"
-                + LocalDate.now().getMonthValue() + "/"
-                + LocalDate.now().getYear());
+        textData.setText("Mês " + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear());
 
         // Atualiza os dados do dashboard
         atualizarResumo();
@@ -156,11 +154,11 @@ public class DashboardFragment extends Fragment {
     private void setupProgressBars() {
         List<ProgressItem> progressItems = new ArrayList<>();
         // Dados fictícios baseados na imagem
-        progressItems.add(new ProgressItem("Setor A", 20, R.color.red_500));
-        progressItems.add(new ProgressItem("Setor B", 30, R.color.pink_500));
-        progressItems.add(new ProgressItem("Setor C", 18, R.color.purple_500));
-        progressItems.add(new ProgressItem("Setor D", 26, R.color.indigo_500));
-        progressItems.add(new ProgressItem("Setor E", 16, R.color.blue_500));
+        progressItems.add(new ProgressItem("Setor A", 25, R.color.red_500));
+        progressItems.add(new ProgressItem("Setor B", 22, R.color.pink_500));
+        progressItems.add(new ProgressItem("Setor C", 20, R.color.purple_500));
+        progressItems.add(new ProgressItem("Setor D", 17, R.color.indigo_500));
+        progressItems.add(new ProgressItem("Setor E", 15, R.color.blue_500));
 
         recyclerViewProgressBars.setLayoutManager(new LinearLayoutManager(getContext()));
 

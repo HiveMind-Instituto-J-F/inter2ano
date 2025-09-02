@@ -1,6 +1,7 @@
 package com.aula.mobile_hivemind;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -17,70 +18,137 @@ import com.aula.mobile_hivemind.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    private boolean isFabMenuOpen = false;
+    private boolean isFabOpen = false;
+    private String userType;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Esconder a ActionBar
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.hide();
         }
 
-        com.aula.mobile_hivemind.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        // Binding
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+        // Primeiro buscar tipo de usuário e configurar navegação
+        fetchUserTypeAndSetupNavigation();
 
-        // Navegação
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_calendar, R.id.navigation_dashboard)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);
+        // Agora inicializar FAB, depois que userType já foi definido
+        setupFabAction();
+    }
 
-        // FAM setup
+    // -------------------- FAB --------------------
+    private void setupFabAction() {
         FloatingActionButton fabMain = findViewById(R.id.fab_main);
-        FloatingActionButton fabOp1 = findViewById(R.id.fab_op1);
-        FloatingActionButton fabOp2 = findViewById(R.id.fab_op2);
+
+        // Configurar visibilidade do FAB principal conforme userType
+        if ("RH".equals(userType)) {
+            fabMain.setVisibility(View.GONE);
+        } else {
+            fabMain.setVisibility(View.VISIBLE);
+        }
 
         fabMain.setOnClickListener(v -> {
-            if (isFabMenuOpen) {
-                fabOp1.hide();
-                fabOp2.hide();
+            if ("regular".equals(userType)) {
+                Toast.makeText(this, "Opção 1 de regular", Toast.LENGTH_SHORT).show();
             } else {
-                fabOp1.show();
-                fabOp2.show();
+                Toast.makeText(this, "Opção 1 clicada", Toast.LENGTH_SHORT).show();
             }
-            isFabMenuOpen = !isFabMenuOpen;
-        });
-
-        fabOp1.setOnClickListener(v -> {
-            Toast.makeText(this, "Opção 1 clicada", Toast.LENGTH_SHORT).show();
-            closeFabMenu(fabOp1, fabOp2);
-        });
-
-        fabOp2.setOnClickListener(v -> {
-            Toast.makeText(this, "Opção 2 clicada", Toast.LENGTH_SHORT).show();
-            closeFabMenu(fabOp1, fabOp2);
+            closeFab(fabMain);
+            isFabOpen = !isFabOpen;
         });
     }
 
-    private void closeFabMenu(FloatingActionButton... fabs) {
+    private void closeFab(FloatingActionButton... fabs) {
         for (FloatingActionButton fab : fabs) {
             fab.hide();
         }
-        isFabMenuOpen = false;
+        isFabOpen = false;
     }
 
     @Override
     public void onBackPressed() {
-        if (isFabMenuOpen) {
-            closeFabMenu(findViewById(R.id.fab_op1), findViewById(R.id.fab_op2));
+        if (isFabOpen) {
+            closeFab(findViewById(R.id.fab_main));
         } else {
             super.onBackPressed();
         }
+    }
+
+    // -------------------- Usuário e navegação --------------------
+    private void fetchUserTypeAndSetupNavigation() {
+        // Aqui você pega do seu banco o tipo de usuário
+        userType = getUserTypeFromDatabase(); // Exemplo síncrono
+
+        setupNavigationByUserType(userType);
+    }
+
+    private String getUserTypeFromDatabase() {
+        // TODO: substituir pela lógica real do seu banco
+        return "RH"; // Exemplo: "regular", "MOP", "RH"
+    }
+
+    private void setupNavigationByUserType(String userType) {
+        BottomNavigationView navView = binding.navView;
+
+        AppBarConfiguration appBarConfiguration;
+
+        if ("regular".equals(userType)) {
+            appBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.navigation_home,
+                    R.id.addParadaFragment
+            ).build();
+
+            navView.getMenu().findItem(R.id.navigation_calendar).setVisible(true);
+            navView.getMenu().findItem(R.id.navigation_dashboard).setVisible(false);
+
+        } else if ("MOP".equals(userType)) {
+            appBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.navigation_home,
+                    R.id.navigation_dashboard,
+                    R.id.maintenanceFragment
+            ).build();
+
+            navView.getMenu().findItem(R.id.navigation_homerh).setVisible(false);
+            navView.getMenu().findItem(R.id.navigation_calendar).setVisible(false);
+
+        } else if ("RH".equals(userType)) {
+            appBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.navigation_calendar,
+                    R.id.navigation_dashboard,
+                    R.id.navigation_homerh
+            ).build();
+
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+
+            navView.getMenu().findItem(R.id.navigation_home).setVisible(false);
+            navController.navigate(R.id.navigation_homerh);
+
+        } else {
+            appBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.navigation_home
+            ).build();
+
+            navView.getMenu().findItem(R.id.navigation_calendar).setVisible(false);
+            navView.getMenu().findItem(R.id.navigation_dashboard).setVisible(false);
+        }
+
+        // Configurar visibilidade geral do BottomNavigationView
+        if ("regular".equals(userType)) {
+            navView.setVisibility(View.GONE);
+        } else {
+            navView.setVisibility(View.VISIBLE);
+        }
+
+        // Configurar NavController
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(navView, navController);
     }
 }
